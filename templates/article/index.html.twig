@@ -16,5 +16,29 @@
         <li>Your controller at <code><a href="{{ '/app/src/Controller/ArticleController.php'|file_link(0) }}">src/Controller/ArticleController.php</a></code></li>
         <li>Your template at <code><a href="{{ '/app/templates/article/index.html.twig'|file_link(0) }}">templates/article/index.html.twig</a></code></li>
     </ul>
+
+    <h2>Liste des articles</h2>
+    <table class="table">
+    <thead>
+    <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Title</th>
+    <th scope="col">Author</th>
+    <th scope="col">Content</th>
+    </tr>
+    </thead>
+    
+    {% for article in articles %}
+    
+    <tr>
+    <td>{{ article.getId() }}</td>
+    <td>{{ article.getTitle() }}</td>
+    <td>{{ article.getAuthor() }}</td>
+    <td>{{ article.getcontent()[0:300] }}</td>
+    </tr>
+
+    {% endfor %}
+    
+    </table>
 </div>
 {% endblock %}
