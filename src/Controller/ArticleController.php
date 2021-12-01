@@ -18,8 +18,24 @@ class ArticleController extends AbstractController
         $articles = $articleRepository->findAll();
         //dd($articles);
         return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
+            //'controller_name' => 'ArticleController',
             'articles' => $articles
+        ]);
+    }
+
+    /**
+     * @Route("/article/{id}", name="article.show")
+     */
+    public function show($id): Response
+    {
+        $articleRepository = $this->getDoctrine()->getRepository(Article::class);
+        $article = $articleRepository->find($id);
+        if (!$article) {
+            throw $this->createNotFoundException('The article does not exist');
+        }
+        return $this->render('article/show.html.twig', [
+            //'controller_name' => 'ArticleController',
+            'article' => $article
         ]);
     }
 }

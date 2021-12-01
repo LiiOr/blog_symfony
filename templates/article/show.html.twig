@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+<div class="container">
+
+<a href={{ path('article.index') }}>Retourner aux articles</a>
+<hr>
+  
+    <h2>{{ article.getTitle() }}</h2>
+    <p>{{ article.getId() }}</p>
+    <p>{{ article.getAuthor() }}</p>
+    <p>{{ article.getCreatedAt()|date('d-m-Y') }}</p>
+    <p>{{ article.getcontent() }}</p>
+
+</div>
+
+
+
+{% endblock %}
