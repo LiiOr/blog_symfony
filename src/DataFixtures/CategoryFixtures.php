@@ -14,7 +14,7 @@ class CategoryFixtures extends Fixture
     {
         $faker = Faker\Factory::create();
             
-        for ($i = 1; $i <= 10; $i++)
+        for ($i = 1; $i <= 3; $i++)
         {
             $category = new Category();
     
